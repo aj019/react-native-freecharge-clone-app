@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Home} from './containers';
+import {Home, PayMerchants} from './containers';
 import TabView from 'react-native-scrollable-tab-view';
 import Colors from './constants/colors';
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
         tabBarPosition="bottom">
         <Home tabLabel="Home" />
         <Home tabLabel="Reminders" />
-        <Home tabLabel="Pay Merchant" />
+        <PayMerchants tabLabel="Pay Merchant" />
         <Home tabLabel="Offers" />
         <Home tabLabel="Account" />
       </TabView>
