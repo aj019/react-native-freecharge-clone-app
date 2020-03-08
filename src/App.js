@@ -14,6 +14,7 @@ export default function App() {
         tabBarUnderlineStyle={{
           width: 0,
         }}
+        locked={true}
         tabBarPosition="bottom">
         <Home tabLabel="Home" />
         <Home tabLabel="Reminders" />

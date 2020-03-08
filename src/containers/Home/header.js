@@ -19,7 +19,7 @@ export default function Header() {
       colors={['#F6683F', '#EA8145']}
       style={styles.linearGradient}>
       <View style={styles.main_header}>
-        <ActionButtons title="UPI Send Money" />
+        <ActionButtons title="Send Money" />
         <ActionButtons title="Receive Money" />
         <ActionButtons title="Add Money" />
       </View>

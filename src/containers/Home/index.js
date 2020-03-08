@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
 import Header from './header';
+import Offers from './offers';
 import Colors from '../../constants/colors';
 
 export default class Home extends Component {
@@ -9,6 +10,7 @@ export default class Home extends Component {
       <SafeAreaView style={styles.container}>
         <ScrollView>
           <Header />
+          <Offers />
         </ScrollView>
       </SafeAreaView>
     );

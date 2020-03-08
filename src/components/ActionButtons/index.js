@@ -39,7 +39,7 @@ function ActionButtons(props) {
 }
 
 ActionButtons.defaultProps = {
-  title: 'Anuj',
+  title: '',
 };
 
 export default ActionButtons;
