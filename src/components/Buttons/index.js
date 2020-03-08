@@ -19,7 +19,7 @@ function CustomButton(props) {
   });
 
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity onPress={props.onPress} style={styles.button}>
       <Text style={styles.text}>{props.title}</Text>
     </TouchableOpacity>
   );
@@ -31,6 +31,7 @@ CustomButton.defaultProps = {
   backgroundColor: 'transparent',
   title: '',
   marginRight: 0,
+  onPress: () => {},
 };
 
 export default CustomButton;

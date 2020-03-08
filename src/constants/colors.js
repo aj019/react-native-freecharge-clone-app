@@ -4,4 +4,5 @@ export default Colors = {
   white: '#fff',
   grey: '#c9c9c9',
   textPrimaryColor: '#000002',
+  green: '#32C553',
 };

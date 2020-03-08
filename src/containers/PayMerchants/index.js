@@ -48,8 +48,6 @@ class PayMerchants extends Component {
   };
   render() {
     const {scan, ScanResult, result} = this.state;
-    const desccription =
-      'QR code (abbreviated from Quick Response Code) is the trademark for a type of matrix barcode (or two-dimensional barcode) first designed in 1994 for the automotive industry in Japan. A barcode is a machine-readable optical label that contains information about the item to which it is attached. In practice, QR codes often contain data for a locator, identifier, or tracker that points to a website or application. A QR code uses four standardized encoding modes (numeric, alphanumeric, byte/binary, and kanji) to store data efficiently; extensions may also be used.';
     return (
       <View style={styles.scrollViewStyle}>
         <TopBar>
@@ -81,7 +79,7 @@ class PayMerchants extends Component {
           {scan && (
             <QRCodeScanner
               reactivate={true}
-              showMarker={true}
+              showMarker={false}
               ref={node => {
                 this.scanner = node;
               }}

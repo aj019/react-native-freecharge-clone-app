@@ -16,9 +16,9 @@ export default function Header() {
   return (
     <TopBar>
       <View style={styles.main_header}>
-        <ActionButtons title="Send Money" />
-        <ActionButtons title="Receive Money" />
-        <ActionButtons title="Add Money" />
+        <ActionButtons iconName="send" title="Send Money" />
+        <ActionButtons iconName="money" title="Receive Money" />
+        <ActionButtons iconName="plus" title="Add Money" />
       </View>
     </TopBar>
   );

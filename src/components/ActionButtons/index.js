@@ -30,7 +30,7 @@ function ActionButtons(props) {
     <TouchableOpacity activeOpacity={0.5}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Icon name="remove" size={30} color={Colors.primaryColor} />
+          <Icon name={props.iconName} size={30} color={Colors.primaryColor} />
         </View>
         <Text style={styles.text}>{props.title}</Text>
       </View>
@@ -40,6 +40,7 @@ function ActionButtons(props) {
 
 ActionButtons.defaultProps = {
   title: '',
+  iconName: 'remove',
 };
 
 export default ActionButtons;

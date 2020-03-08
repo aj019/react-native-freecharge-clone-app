@@ -1,27 +1,31 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Home, PayMerchants} from './containers';
+import {Home, Reminders, PayMerchants} from './containers';
 import TabView from 'react-native-scrollable-tab-view';
 import Colors from './constants/colors';
+import store from './store';
+import {Provider} from 'react-redux';
 export default function App() {
   return (
     <>
-      <TabView
-        style={styles.bottomBar}
-        tabBarTextStyle={styles.tabText}
-        tabBarActiveTextColor={Colors.primaryColor}
-        tabBarInActiveTextColor="#000"
-        tabBarUnderlineStyle={{
-          width: 0,
-        }}
-        locked={true}
-        tabBarPosition="bottom">
-        <Home tabLabel="Home" />
-        <Home tabLabel="Reminders" />
-        <PayMerchants tabLabel="Pay Merchant" />
-        <Home tabLabel="Offers" />
-        <Home tabLabel="Account" />
-      </TabView>
+      <Provider store={store}>
+        <TabView
+          style={styles.bottomBar}
+          tabBarTextStyle={styles.tabText}
+          tabBarActiveTextColor={Colors.primaryColor}
+          tabBarInActiveTextColor="#000"
+          tabBarUnderlineStyle={{
+            width: 0,
+          }}
+          locked={true}
+          tabBarPosition="bottom">
+          <Home tabLabel="Home" />
+          <Reminders tabLabel="Reminders" />
+          <PayMerchants tabLabel="Pay Merchant" />
+          <Home tabLabel="Offers" />
+          <Home tabLabel="Account" />
+        </TabView>
+      </Provider>
     </>
   );
 }

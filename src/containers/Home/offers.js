@@ -25,71 +25,51 @@ export default function Offers() {
       marginTop: 10,
     },
   });
+
+  const cards = [
+    {
+      title: '',
+    },
+    {
+      title: '',
+    },
+    {
+      title: '',
+    },
+  ];
   return (
     <ScrollView
       showsHorizontalScrollIndicator={false}
       horizontal={true}
       style={styles.container}>
-      <Card>
-        <View style={styles.cardContent}>
-          <Text>Flat 25% off on Medicine order</Text>
-          <Text style={styles.highlightedtext}>Get Extra 250rs Freecharge</Text>
-          <View style={styles.buttonContainer}>
-            <Button
-              title="Details"
-              borderColor={Colors.grey}
-              textColor={Colors.grey}
-              marginRight={5}
-            />
-            <Button
-              title="Ignore"
-              borderColor={Colors.grey}
-              textColor={Colors.grey}
-            />
-          </View>
-          <Text style={styles.disabledText}>Grab Pharmeasy deal at Rs 1</Text>
-        </View>
-      </Card>
-      <Card>
-        <View style={styles.cardContent}>
-          <Text>Flat 25% off on Medicine order</Text>
-          <Text style={styles.highlightedtext}>Get Extra 250rs Freecharge</Text>
-          <View style={styles.buttonContainer}>
-            <Button
-              title="Details"
-              borderColor={Colors.grey}
-              textColor={Colors.grey}
-              marginRight={5}
-            />
-            <Button
-              title="Ignore"
-              borderColor={Colors.grey}
-              textColor={Colors.grey}
-            />
-          </View>
-          <Text style={styles.disabledText}>Grab Pharmeasy deal at Rs 1</Text>
-        </View>
-      </Card>
-      <Card>
-        <View style={styles.cardContent}>
-          <Text>Flat 25% off on Medicine order</Text>
-          <Text style={styles.highlightedtext}>Get Extra 250rs Freecharge</Text>
-          <View style={styles.buttonContainer}>
-            <Button
-              title="Details"
-              borderColor={Colors.grey}
-              textColor={Colors.grey}
-              marginRight={5}
-            />
-            <Button
-              title="Ignore"
-              borderColor={Colors.grey}
-              textColor={Colors.grey}
-            />
-          </View>
-          <Text style={styles.disabledText}>Grab Pharmeasy deal at Rs 1</Text>
-        </View>
-      </Card>
+      {cards.map((card, i) => {
+        return (
+          <Card key={i}>
+            <View style={styles.cardContent}>
+              <Text>Flat 25% off on Medicine order</Text>
+              <Text style={styles.highlightedtext}>
+                Get Extra 250rs Freecharge
+              </Text>
+              <View style={styles.buttonContainer}>
+                <Button
+                  title="Details"
+                  borderColor={Colors.green}
+                  textColor={Colors.green}
+                  marginRight={5}
+                />
+                <Button
+                  title="Ignore"
+                  borderColor={Colors.grey}
+                  textColor={Colors.grey}
+                />
+              </View>
+              <Text style={styles.disabledText}>
+                Grab Pharmeasy deal at Rs 1
+              </Text>
+            </View>
+          </Card>
+        );
+      })}
     </ScrollView>
   );
 }
