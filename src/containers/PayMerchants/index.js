@@ -1,9 +1,17 @@
 import React, {Component, Fragment} from 'react';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import styles from './scanStyles';
-import {TouchableOpacity, Text, StatusBar, Linking, View} from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  StatusBar,
+  Linking,
+  View,
+  TextInput,
+  NativeModules,
+} from 'react-native';
 import {TopBar} from '../../components';
-
+const UPI = NativeModules.UPI;
 class PayMerchants extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +19,8 @@ class PayMerchants extends Component {
       scan: true,
       ScanResult: false,
       result: null,
+      inputText: '',
+      paymentStatus: '',
     };
   }
 
@@ -46,8 +56,22 @@ class PayMerchants extends Component {
       ScanResult: false,
     });
   };
+
+  handleTextChange = e => {
+    this.setState({
+      inputText: e,
+    });
+  };
+
+  makePayment = async () => {
+    const {result} = this.state;
+    let UpiUrl = result.data + `&amount=5`;
+    let response = await UPI.openLink(UpiUrl);
+    console.log(response);
+  };
+
   render() {
-    const {scan, ScanResult, result} = this.state;
+    const {scan, ScanResult, result, inputText, paymentStatus} = this.state;
     return (
       <View style={styles.scrollViewStyle}>
         <TopBar>
@@ -67,6 +91,19 @@ class PayMerchants extends Component {
                 <Text>Type : {result.type}</Text>
                 <Text>Result : {result.data}</Text>
                 <Text numberOfLines={1}>RawData: {result.rawData}</Text>
+                <TextInput
+                  placeholder="Enter Amount to Pay"
+                  style={styles.input}
+                  value={inputText}
+                  type="number"
+                />
+
+                <TouchableOpacity
+                  onPress={this.makePayment}
+                  style={styles.buttonTouchable}>
+                  <Text style={styles.buttonTextStyle}>Pay</Text>
+                </TouchableOpacity>
+                {paymentStatus !== '' && <Text>{paymentStatus}</Text>}
                 <TouchableOpacity
                   onPress={this.scanAgain}
                   style={styles.buttonTouchable}>

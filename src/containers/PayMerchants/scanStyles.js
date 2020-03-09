@@ -15,6 +15,14 @@ const styles = {
     padding: 10,
   },
 
+  input: {
+    color: Colors.primaryColor,
+    borderColor: Colors.primaryColor,
+    borderWidth: 2,
+    padding: 5,
+    marginTop: 30,
+  },
+
   textTitle: {
     fontWeight: 'bold',
     fontSize: 18,

@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
-import {View, Text, TextInput, TouchableOpacity, Modal} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Modal,
+  NativeModules,
+} from 'react-native';
 import {TopBar, Button, FeatureButtons} from '../../components';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {add, remove} from '../../actions';
 import {connect} from 'react-redux';
 import Colors from '../../constants/colors';
+
+const UPI = NativeModules.UPI;
 class Reminders extends Component {
   constructor() {
     super();
@@ -33,6 +42,13 @@ class Reminders extends Component {
 
   handleDelete = i => {
     this.props.removeItem(i);
+  };
+
+  callUPI = async () => {
+    let UpiUrl =
+      'upi://pay?pa=anujgupta019@okicici&pn=Anuj%20Gupta&aid=uGICAgICA-um_Cg';
+    let response = await UPI.openLink(UpiUrl);
+    console.log(response); //however you want to handle response
   };
 
   render() {
@@ -132,7 +148,7 @@ class Reminders extends Component {
                       borderColor={Colors.green}
                       textColor={Colors.green}
                       marginRight={5}
-                      onPress={() => this.handleDelete(i)}
+                      onPress={this.callUPI}
                     />
                     <Button
                       title="Dismiss"

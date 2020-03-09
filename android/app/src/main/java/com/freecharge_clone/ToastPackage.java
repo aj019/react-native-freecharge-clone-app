@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import com.freecharge_clone.ToastModule;
-
+import com.freecharge_clone.UPIModule;
 
 public class ToastPackage implements ReactPackage {
 
-    @Override
+  @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
     return Collections.emptyList();
   }
 
   @Override
-  public List<NativeModule> createNativeModules(
-                              ReactApplicationContext reactContext) {
+  public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
 
     modules.add(new ToastModule(reactContext));
+    modules.add(new UPIModule(reactContext));
 
     return modules;
   }
