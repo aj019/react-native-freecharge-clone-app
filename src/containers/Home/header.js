@@ -5,7 +5,7 @@ import {ActionButtons, TopBar} from '../../components';
 export default function Header() {
   const styles = StyleSheet.create({
     main_header: {
-      height: 200,
+      height: 150,
       flexDirection: 'row',
       flex: 1,
       justifyContent: 'center',
