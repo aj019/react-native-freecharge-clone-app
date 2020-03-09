@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, StatusBar} from 'react-native';
 import {Home, Reminders, PayMerchants, Account} from './containers';
 import TabView from 'react-native-scrollable-tab-view';
 import Colors from './constants/colors';
@@ -9,6 +9,10 @@ export default function App() {
   return (
     <>
       <Provider store={store}>
+        <StatusBar
+          backgroundColor={Colors.primaryColor}
+          barStyle="light-content"
+        />
         <TabView
           style={styles.bottomBar}
           tabBarTextStyle={styles.tabText}
