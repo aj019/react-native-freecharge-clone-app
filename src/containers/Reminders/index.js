@@ -66,11 +66,13 @@ class Reminders extends Component {
     const {modalVisible, inputText, loading} = this.state;
     if (loading)
       return (
-        <ActivityIndicator
-          style={{flex: 1}}
-          color={Colors.primaryColor}
-          size="large"
-        />
+        <View style={styles.scrollViewStyle}>
+          <ActivityIndicator
+            style={{flex: 1}}
+            color={Colors.primaryColor}
+            size="large"
+          />
+        </View>
       );
     return (
       <View style={styles.scrollViewStyle}>
