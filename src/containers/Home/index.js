@@ -12,8 +12,8 @@ export default class Home extends Component {
         <ScrollView>
           <Header />
           <Offers />
-          <Payments title={'RECHARGE AND BILL PAYMENTS'} />
-          <Payments title={'BUY & INVEST'} />
+          <Payments type={'recharge'} title={'RECHARGE AND BILL PAYMENTS'} />
+          <Payments type={'investment'} title={'BUY & INVEST'} />
         </ScrollView>
       </SafeAreaView>
     );

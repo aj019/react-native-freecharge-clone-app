@@ -33,7 +33,7 @@ function FeatureButtons(props) {
     <TouchableOpacity activeOpacity={0.5}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Icon name="phone" size={20} color={Colors.primaryColor} />
+          <Icon name={props.iconName} size={20} color={Colors.primaryColor} />
         </View>
         <Text style={styles.text}>{props.title}</Text>
         {props.subTitle && <Text style={styles.subText}>{props.subTitle}</Text>}
@@ -44,6 +44,7 @@ function FeatureButtons(props) {
 
 FeatureButtons.defaultProps = {
   title: 'Mobile',
+  iconName: 'phone',
 };
 
 export default FeatureButtons;

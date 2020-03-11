@@ -12,32 +12,32 @@ const options = [
   },
   {
     id: 2,
-    iconName: 'tasks',
+    iconName: 'support',
     title: 'Help and Support',
   },
   {
     id: 3,
-    iconName: 'tasks',
+    iconName: 'credit-card-alt',
     title: 'Security Settings',
   },
   {
     id: 4,
-    iconName: 'tasks',
+    iconName: 'bank',
     title: 'BHIM UPI Settings',
   },
   {
     id: 5,
-    iconName: 'tasks',
+    iconName: 'id-card',
     title: 'KYC Details',
   },
   {
     id: 6,
-    iconName: 'tasks',
+    iconName: 'credit-card-alt',
     title: 'Saved Cards',
   },
   {
     id: 6,
-    iconName: 'tasks',
+    iconName: 'bank',
     title: 'Bank Accounts',
   },
 ];
