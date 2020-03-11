@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   Modal,
+  ActivityIndicator,
   NativeModules,
 } from 'react-native';
 import {TopBar, Button, FeatureButtons} from '../../components';
@@ -21,6 +22,7 @@ class Reminders extends Component {
     this.state = {
       inputText: '',
       modalVisible: false,
+      loading: true,
     };
   }
 
@@ -51,8 +53,25 @@ class Reminders extends Component {
     console.log(response); //however you want to handle response
   };
 
+  componentDidMount() {
+    let timeout = setTimeout(() => {
+      this.setState({
+        loading: false,
+      });
+      clearTimeout(timeout);
+    }, 2000);
+  }
+
   render() {
-    const {modalVisible, inputText} = this.state;
+    const {modalVisible, inputText, loading} = this.state;
+    if (loading)
+      return (
+        <ActivityIndicator
+          style={{flex: 1}}
+          color={Colors.primaryColor}
+          size="large"
+        />
+      );
     return (
       <View style={styles.scrollViewStyle}>
         <Modal transparent animationType={'slide'} visible={modalVisible}>
