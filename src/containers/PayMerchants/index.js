@@ -8,6 +8,7 @@ import {
   Linking,
   View,
   TextInput,
+  Alert,
   NativeModules,
 } from 'react-native';
 import {TopBar} from '../../components';
@@ -64,11 +65,28 @@ class PayMerchants extends Component {
   };
 
   makePayment = async () => {
-    const {result} = this.state;
-    let UpiUrl = result.data + `&amount=5`;
+    const {result, inputText} = this.state;
+    const amount = inputText;
+    let UpiUrl =
+      result.data +
+      `&tr=kdahskjahs27575fsdfasdas` +
+      `&am=${amount}&mam=null&cu=INR&url=https://MyUPIApp&refUrl=https://MyUPIApp`;
     let response = await UPI.openLink(UpiUrl);
-    console.log(response);
+    if (response.includes('SUCCESS')) {
+      this.showAlert('Payment Successful');
+    } else {
+      this.showAlert('Payment Failure');
+    }
   };
+
+  showAlert(paymentStatus) {
+    Alert.alert(
+      'Payment Status',
+      paymentStatus,
+      [{text: 'OK', onPress: () => console.log('OK Pressed')}],
+      {cancelable: false},
+    );
+  }
 
   render() {
     const {scan, ScanResult, result, inputText, paymentStatus} = this.state;
@@ -96,6 +114,7 @@ class PayMerchants extends Component {
                   style={styles.input}
                   value={inputText}
                   type="number"
+                  onChangeText={this.handleTextChange}
                 />
 
                 <TouchableOpacity
